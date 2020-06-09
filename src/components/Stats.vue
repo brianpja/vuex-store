@@ -3,7 +3,7 @@
     <h1>This is in a different Stats Component</h1>
     <p>There are currently {{ countLinks }} links</p>
 
-    <button v-on:click="removeAllLinks">Remove all links</button>
+    <button v-on:click="removeAllLinks" :disabled="isLoading">Remove all links</button>
     <p v-if="isLoading">Processing request...</p>
     <p>{{msg}}</p>
   </div>

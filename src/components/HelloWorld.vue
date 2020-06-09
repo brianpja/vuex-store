@@ -44,6 +44,10 @@ export default {
       'title',
       'links'
     ]),
+    // mapping the state for title is same as the following commented code
+    // title() {
+    //   return this.$store.state.title
+    // }
     // other properties added here
   },
   methods: {
