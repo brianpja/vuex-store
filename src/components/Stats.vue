@@ -4,6 +4,7 @@
     <p>There are currently {{ countLinks }} links</p>
 
     <button v-on:click="removeAllLinks">Remove all links</button>
+    <p v-if="isLoading">Processing request...</p>
     <p>{{msg}}</p>
   </div>
 </template>
@@ -15,7 +16,8 @@ export default {
   name: 'Stats',
   data() {
     return {
-      msg: ''
+      msg: '',
+      isLoading: false,
     }
   },
   computed: {
@@ -29,8 +31,13 @@ export default {
     ...mapActions([
       'removeAll'
     ]),
+    setLoading(bool) {
+      this.isLoading = bool;
+    },
     removeAllLinks() {
+      this.setLoading(true)
       this.removeAll().then(() => {
+        this.setLoading(false)
         this.msg = 'Poof! They are gone!'
       })
     }
