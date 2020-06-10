@@ -31,6 +31,7 @@ export default new Vuex.Store({
       state.links = [];
     }
   },
+  // instead of mutating state, actions commit mutations
   // use actions for asynchronous functionality
   actions: {
     removeLink: (context, link) => {
@@ -50,3 +51,4 @@ export default new Vuex.Store({
   modules: {
   }
 })
+
