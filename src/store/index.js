@@ -20,6 +20,7 @@ export default new Vuex.Store({
     }
   },
   // mutations let you change the data in state
+  // first argument is always state
   mutations: {
     ADD_LINK: (state, link) => {
       state.links.push(link)
@@ -33,11 +34,12 @@ export default new Vuex.Store({
   },
   // instead of mutating state, actions commit mutations
   // use actions for asynchronous functionality
+  // first argument is always context
   actions: {
     removeLink: (context, link) => {
       context.commit('REMOVE_LINK', link)
     },
-    // uses object destructuring to call commit without context
+    // uses object destructuring to call commit without having to call the context parent object
     // this example waits 1.5 seconds and then calls REMOVE_ALL mutation
     removeAll({ commit }) {
       return new Promise((resolve, reject) => {
